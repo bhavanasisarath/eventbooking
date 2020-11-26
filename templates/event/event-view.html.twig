@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+{{ block('headertext', 'front.html.twig') }}
+
+<div class="text-center">
+{% if event is not empty %}
+
+
+<h1 class="event-title">{{ event.name}}</h1>
+<div class="event-description">{{ event.shortdescription }}</div>
+<div class="event-seats">Available Seats: {{ available_seats }}</div>
+
+<br/>
+<div class="event-links">
+{% if booked == 0 and available_seats != 0 %}
+	<a class="yes-link" href="/event/{{ event.id }}/yes">Yes</a>
+{% endif %}
+<a class="maybe-link" href="#">Maybe</a>
+<a class="no-link" href="#">No</a>
+</div>
+
+{% endif %}
+<div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Events{% endblock %}
+
+{% block body %}
+{{ block('headertext', 'front.html.twig') }}
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm">
+			<h1>{{ 'Events'}}</h1>
+			<div class="events-list-container">
+				{% for event in events %}	
+					<div class="event-row">
+						<a href="event/{{ event.id }}">  {{ event.name }}</a>		
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	
+	{% if admin_user %}
+		<div class="row">
+			<div class="col-sm">				
+				<a href="/create-event">Create Event</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm">
+				<h3>Event Statistics</h3>
+				{% for event in events %}
+					<a href="eventstats/{{ event.id }}">  {{ event.name }}</a>
+				{% endfor %}
+			</div>
+		</div>
+	{% endif %}
+</div>
+
+</div>
+{% endblock %}

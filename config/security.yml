@@ -1,0 +1,4 @@
+security:
+  role_hierarchy:
+    ROLE_EMPLOYEE: [ROLE_USER, ROLE_EMPLOYEE]
+    ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN]

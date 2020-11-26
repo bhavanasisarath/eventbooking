@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{{ block('headertext', 'front.html.twig') }}
+<div class="text-center">
+{{ form_start(form) }}
+	<div class="form-group">
+		{{ form_row(form.name) }}
+	</div>
+	
+	<div class="form-group">
+		{{ form_row(form.shortdescription) }}
+	</div>
+	
+	<div class="form-group">
+		{{ form_row(form.seats) }}
+	</div>
+	
+    <button type="submit"  class="btn btn-primary">Create Event</button>
+{{ form_end(form) }}
+</div>
+{% endblock %}
